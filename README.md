@@ -3,7 +3,8 @@ This is a bot that manages job applications
 
 1. *Fork* and *clone* this repo
 2. Create a **Project** board called *Job Applications*
-3. Be sure to have 3 columns: `To do`, `In Progress`, `Done`
+3. You need to select the *Basic Kanban* template after doing step 2.
+4. Be sure to have 3 columns: `To do`, `In Progress`, `Done`
 
 Add a `.env` file and put the following inside:
 ```text
