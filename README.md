@@ -1,4 +1,4 @@
-# job_applications
+# ApplicationBot 🥷🏽
 This is a bot that manages job applications
 
 1. *Fork* and *clone* this repo
