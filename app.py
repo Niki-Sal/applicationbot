@@ -5,7 +5,6 @@ import time, requests, pprint
 from dotenv import load_dotenv
 load_dotenv()
 from os import environ
-# print(environ.get('GITHUB_USERNAME'))
 
 # login variables
 username = environ.get('GITHUB_USERNAME')
@@ -132,8 +131,7 @@ def make_job_card():
 if __name__ == '__main__':
     login()
     make_job_card()
+    print('*** Bot is closing in 5 seconds... ***')
+    time.sleep(5)
     driver.close()
-
-    # print(username)
-    # print(password)
-    # print(environ)
+    
