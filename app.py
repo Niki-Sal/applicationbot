@@ -132,6 +132,7 @@ if __name__ == '__main__':
     login()
     make_job_card()
     print('*** Bot is closing in 5 seconds... ***')
+    print('REMINDER: Fill out card for submitted apps today!')
     time.sleep(5)
     driver.close()
     
