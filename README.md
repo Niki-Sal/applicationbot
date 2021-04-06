@@ -18,7 +18,7 @@ python3 app.py
 The terminal (app) will prompt you for three questions:
 ```text
 Enter the name of the company: Facebook Inc
-Enter the title of the job: Frontend Engineer
+Enter the title of the job: Internal Software Engineer
 Enter the link of the application: https: https://www.facebook.com/careers/v2/jobs/186900152946376/
 ```
 Then the app will make a job card for each application.
