@@ -5,7 +5,7 @@ import time, requests, pprint
 from dotenv import load_dotenv
 load_dotenv()
 from os import environ
-print(environ.get('GITHUB_USERNAME'))
+# print(environ.get('GITHUB_USERNAME'))
 
 # login variables
 username = environ.get('GITHUB_USERNAME')
@@ -16,7 +16,7 @@ role = input('Enter the title of the job: ')
 link = input('Enter the link of the application: ')
 
 # opens up Chrome
-driver = webdriver.Chrome('/Users/romebell/downloads/chromedriver-2')
+driver = webdriver.Chrome('/Users/romebell/downloads/chromedriver-4')
 time.sleep(3)
 
 # actions
@@ -28,7 +28,7 @@ def login():
     driver.find_element_by_xpath('//*[@id="login_field"]').send_keys(username) # input username
     driver.find_element_by_xpath('//*[@id="password"]').send_keys(password) # input password
     time.sleep(0.25)
-    driver.find_element_by_xpath('//*[@id="login"]/div[4]/form/input[14]').click() # click on the button
+    driver.find_element_by_xpath('//*[@id="login"]/div[4]/form/div/input[12]').click() # click on the button
     time.sleep(3)
     print('Login was successful')
 
@@ -63,7 +63,7 @@ def make_job_card():
     driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[1]/button').click()
     time.sleep(1.5)
     try:
-        driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea')
+        driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea')
         pass
     except:
         print('Element is not found, trying again...')
@@ -73,62 +73,67 @@ def make_job_card():
 
     # Enter card info
     # name
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys('...')
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys('...')
     time.sleep(0.25)
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.25)
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(f"{text.get('name')}{text.get('input_name')}")
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(f"{text.get('name')}{text.get('input_name')}")
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(f"{text.get('job_title')}{text.get('input_role')}")
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(f"{text.get('job_title')}{text.get('input_role')}")
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
     entire_link = f"{text.get('job_link_start')}{text['input_link']}{text.get('job_link_end')}"
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(entire_link)
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(entire_link)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(text.get('rejected'))
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(text.get('rejected'))
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
     
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(text.get('phone'))
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(text.get('phone'))
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(text.get('senior_role'))
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(text.get('senior_role'))
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(text.get('coding_challenge'))
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(text.get('coding_challenge'))
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(text.get('video_screen'))
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(text.get('video_screen'))
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(text.get('tech_interview'))
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(text.get('tech_interview'))
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(text.get('onsite'))
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(text.get('onsite'))
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(text.get('offer'))
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(text.get('offer'))
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(text.get('notes'))
-    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/textarea').send_keys(Keys.ENTER)
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(text.get('notes'))
+    driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/text-expander/textarea').send_keys(Keys.ENTER)
     time.sleep(0.1)
 
     driver.find_element_by_xpath('//*[@id="column-12657769"]/div[1]/div[2]/form[1]/div/button[1]').click()
-    print(f"App for {text.get('input_name')} is complete. GREAT WORK, ROME!")
+    print(f"App for {text.get('input_name')} is complete. GREAT WORK, YOU!")
 
-login()
-make_job_card()
-driver.close()
+if __name__ == '__main__':
+    login()
+    make_job_card()
+    driver.close()
+
+    # print(username)
+    # print(password)
+    # print(environ)
